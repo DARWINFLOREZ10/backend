@@ -25,35 +25,39 @@ public class MaquinaCafe {
     }
 
     public void setTipoCafe(String tipoCafe) {
-        if (tipoCafe == null || tipoCafe.isBlank()) throw new IllegalArgumentException("Tipo de café inválido");
-        this.tipoCafe = tipoCafe.trim();
+        if (tipoCafe != null && !tipoCafe.isBlank()) {
+            this.tipoCafe = tipoCafe;
+        }
     }
 
     public void setTemperatura(double temperatura) {
-        if (temperatura < 30 || temperatura > 100) throw new IllegalArgumentException("Temperatura fuera de rango");
-        this.temperatura = temperatura;
+        if (temperatura >= 30 && temperatura <= 100) {
+            this.temperatura = temperatura;
+        }
     }
 
     public void setTamañoVaso(int tamañoVaso) {
-        if (tamañoVaso <= 0) throw new IllegalArgumentException("Tamaño inválido");
-        this.tamañoVaso = tamañoVaso;
+        if (tamañoVaso > 0) {
+            this.tamañoVaso = tamañoVaso;
+        }
     }
 
     public void setPrecio(BigDecimal precio) {
-        if (precio == null || precio.compareTo(BigDecimal.ZERO) <= 0 || precio.compareTo(new BigDecimal("10000")) > 0)
-            throw new IllegalArgumentException("Precio inválido");
-        this.precio = precio;
+        if (precio != null && precio.compareTo(BigDecimal.ZERO) > 0 && precio.compareTo(new BigDecimal("10000")) <= 0) {
+            this.precio = precio;
+        }
     }
 
     public void setNivelIntensidad(int nivelIntensidad) {
-        if (nivelIntensidad < 1 || nivelIntensidad > 10) throw new IllegalArgumentException("Intensidad inválida");
-        this.nivelIntensidad = nivelIntensidad;
+        if (nivelIntensidad >= 1 && nivelIntensidad <= 10) {
+            this.nivelIntensidad = nivelIntensidad;
+        }
     }
 
     public void setFechaTostado(LocalDate fechaTostado) {
-        if (fechaTostado.isAfter(LocalDate.now()) || fechaTostado.isBefore(LocalDate.of(2010, 1, 1)))
-            throw new IllegalArgumentException("Fecha de tostado inválida");
-        this.fechaTostado = fechaTostado;
+        if (fechaTostado != null && !fechaTostado.isAfter(LocalDate.now()) && fechaTostado.isAfter(LocalDate.of(2009, 12, 31))) {
+            this.fechaTostado = fechaTostado;
+        }
     }
 
     @Override
@@ -62,5 +66,3 @@ public class MaquinaCafe {
             tipoCafe, temperatura, tamañoVaso, precio, nivelIntensidad, fechaTostado);
     }
 }
-
-

@@ -26,13 +26,15 @@ public class Biblioteca {
     }
 
     public void setNombre(String nombre) {
-        if (nombre == null || nombre.isBlank()) throw new IllegalArgumentException("Nombre inválido");
-        this.nombre = nombre.trim();
+        if (nombre != null && !nombre.isBlank()) {
+            this.nombre = nombre;
+        }
     }
 
     public void setCantidadLibros(int cantidadLibros) {
-        if (cantidadLibros < 0) throw new IllegalArgumentException("Cantidad inválida");
-        this.cantidadLibros = cantidadLibros;
+        if (cantidadLibros >= 0) {
+            this.cantidadLibros = cantidadLibros;
+        }
     }
 
     public void setPublica(boolean publica) {
@@ -40,21 +42,21 @@ public class Biblioteca {
     }
 
     public void setPresupuestoAnual(BigDecimal presupuestoAnual) {
-        if (presupuestoAnual == null || presupuestoAnual.compareTo(BigDecimal.ZERO) < 0)
-            throw new IllegalArgumentException("Presupuesto inválido");
-        this.presupuestoAnual = presupuestoAnual;
+        if (presupuestoAnual != null && presupuestoAnual.compareTo(BigDecimal.ZERO) >= 0) {
+            this.presupuestoAnual = presupuestoAnual;
+        }
     }
 
     public void setFechaFundacion(LocalDate fechaFundacion) {
-        if (fechaFundacion.isAfter(LocalDate.now()))
-            throw new IllegalArgumentException("Fecha inválida");
-        this.fechaFundacion = fechaFundacion;
+        if (fechaFundacion != null && !fechaFundacion.isAfter(LocalDate.now())) {
+            this.fechaFundacion = fechaFundacion;
+        }
     }
 
     public void setSecciones(List<String> secciones) {
-        if (secciones == null || secciones.isEmpty())
-            throw new IllegalArgumentException("Debe tener al menos una sección");
-        this.secciones = secciones;
+        if (secciones != null && !secciones.isEmpty()) {
+            this.secciones = secciones;
+        }
     }
 
     @Override
@@ -63,4 +65,3 @@ public class Biblioteca {
             nombre, cantidadLibros, publica, presupuestoAnual, fechaFundacion, secciones);
     }
 }
-

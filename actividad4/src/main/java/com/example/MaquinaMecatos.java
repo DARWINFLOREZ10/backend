@@ -30,10 +30,9 @@ public class MaquinaMecatos {
     }
 
     public void setNombreProducto(String nombreProducto) {
-        if (nombreProducto == null || nombreProducto.isBlank()) {
-            throw new IllegalArgumentException("Nombre inválido");
+        if (nombreProducto != null && !nombreProducto.isBlank()) {
+            this.nombreProducto = nombreProducto;
         }
-        this.nombreProducto = nombreProducto.trim();
     }
 
     public int getCantidadDisponible() {
@@ -41,10 +40,9 @@ public class MaquinaMecatos {
     }
 
     public void setCantidadDisponible(int cantidadDisponible) {
-        if (cantidadDisponible < 0) {
-            throw new IllegalArgumentException("Cantidad inválida");
+        if (cantidadDisponible >= 0) {
+            this.cantidadDisponible = cantidadDisponible;
         }
-        this.cantidadDisponible = cantidadDisponible;
     }
 
     public BigDecimal getPrecioUnitario() {
@@ -52,10 +50,9 @@ public class MaquinaMecatos {
     }
 
     public void setPrecioUnitario(BigDecimal precioUnitario) {
-        if (precioUnitario == null || precioUnitario.compareTo(BigDecimal.ZERO) <= 0) {
-            throw new IllegalArgumentException("Precio inválido");
+        if (precioUnitario != null && precioUnitario.compareTo(BigDecimal.ZERO) > 0) {
+            this.precioUnitario = precioUnitario;
         }
-        this.precioUnitario = precioUnitario;
     }
 
     public boolean isRefrigerado() {
@@ -71,10 +68,9 @@ public class MaquinaMecatos {
     }
 
     public void setFechaCaducidad(LocalDate fechaCaducidad) {
-        if (fechaCaducidad.isBefore(LocalDate.now())) {
-            throw new IllegalArgumentException("Caducado");
+        if (fechaCaducidad != null && !fechaCaducidad.isBefore(LocalDate.now())) {
+            this.fechaCaducidad = fechaCaducidad;
         }
-        this.fechaCaducidad = fechaCaducidad;
     }
 
     public List<String> getIngredientes() {
@@ -82,10 +78,9 @@ public class MaquinaMecatos {
     }
 
     public void setIngredientes(List<String> ingredientes) {
-        if (ingredientes == null || ingredientes.isEmpty()) {
-            throw new IllegalArgumentException("Debe tener al menos un ingrediente");
+        if (ingredientes != null && !ingredientes.isEmpty()) {
+            this.ingredientes = ingredientes;
         }
-        this.ingredientes = ingredientes;
     }
 
     @Override
