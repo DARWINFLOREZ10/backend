@@ -1,0 +1,47 @@
+-------------------------------
+|       MaquinaCafe           |
+-------------------------------
+| - tipoCafe: String          |
+| - capacidadMl: int          |
+| - temperatura: double       |
+| - marca: String             |   
+| - encendida: boolean        |
+| - fechaFabricacion: LocalDate |
+-------------------------------
+| + MaquinaCafe()             |
+| + MaquinaCafe(...)          |
+| + get...() / set...()       |
+| + toString()                |
+-------------------------------
+
+-------------------------------
+|       MaquinaMecatos        |
+-------------------------------
+| - marca: String             |
+| - numeroProductos: int      |
+| - energiaActiva: boolean    |
+| - ubicacion: String         |
+| - precioPromedio: double    |
+| - productos: List<String>   |
+-------------------------------
+| + MaquinaMecatos()          |
+| + MaquinaMecatos(...)       |
+| + get...() / set...()       |
+| + toString()                |
+-------------------------------
+
+-------------------------------
+|         Biblioteca          |
+-------------------------------
+| - nombre: String            |
+| - direccion: String         |
+| - capacidadLibros: int      |
+| - abierta: boolean          |
+| - fechaFundacion: LocalDate|
+| - librosDisponibles: List<String> |
+-------------------------------
+| + Biblioteca()              |
+| + Biblioteca(...)           |
+| + get...() / set...()       |
+| + toString()                |
+-------------------------------
