@@ -1,6 +1,7 @@
 package com.example;
 
 public class Main {
+<<<<<<< HEAD
     public static void main(String[] args) {
         Profesor prof1 = new Profesor("Laura Méndez", "1001001001", 3500000, 30, true);
         Profesor prof2 = new Profesor("Pedro Salazar", "2002002002", 2800000);
@@ -41,5 +42,42 @@ public class Main {
         System.out.println("=== Modificación de Horas ===");
         prof1.asignarHorasSemanales(38);
         prof1.mostrarInformacion();
+=======
+
+    // Clase interna Profesor
+    static class Profesor {
+        private String nombre;
+        private String materia;
+
+        public Profesor(String nombre, String materia) {
+            this.nombre = nombre;
+            this.materia = materia;
+        }
+
+        public String getInfo() {
+            return nombre + " enseña " + materia;
+        }
+    }
+
+    // Clase interna Curso
+    static class Curso {
+        private String nombreCurso;
+        private Profesor profesor;
+
+        public Curso(String nombreCurso, Profesor profesor) {
+            this.nombreCurso = nombreCurso;
+            this.profesor = profesor;
+        }
+
+        public String getInfoCurso() {
+            return "Curso: " + nombreCurso + ", Profesor: " + profesor.getInfo();
+        }
+    }
+
+    public static void main(String[] args) {
+        Profesor profe = new Profesor("Laura", "Matemáticas");
+        Curso curso = new Curso("Álgebra", profe);
+        System.out.println(curso.getInfoCurso());
+>>>>>>> 5c401ef (ej-herencia)
     }
 }

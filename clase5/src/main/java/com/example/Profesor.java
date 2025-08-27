@@ -1,5 +1,6 @@
 package com.example;
 
+<<<<<<< HEAD
 public class Profesor {
     private String nombre;
     private String numeroIdentificacion;
@@ -121,3 +122,19 @@ public class Profesor {
     }
 }
 
+=======
+// Clase: Profesor.java
+public class Profesor {
+    private String nombre;
+    private String materia;
+
+    public Profesor(String nombre, String materia) {
+        this.nombre = nombre;
+        this.materia = materia;
+    }
+
+    public String getInfo() {
+        return nombre + " enseña " + materia;
+    }
+}
+>>>>>>> 5c401ef (ej-herencia)
